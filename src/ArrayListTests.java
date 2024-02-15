@@ -32,7 +32,7 @@ public class ArrayListTests {
     private int testAdd(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
-            ArrayList<Integer> copyList = new ArrayList<>(list);
+            ArrayList<Integer> copyList = new ArrayList<Integer>(list);
             long start = System.nanoTime();
             copyList.add(num);
             long end = System.nanoTime();

@@ -57,7 +57,7 @@ public class ArrayDequeTests {
         for (int num : testCases){
             ArrayDeque<Integer> copyDeque = new ArrayDeque<>(deque);
             long start = System.nanoTime();
-            copyDeque.removeIf(value -> value.equals(num));
+            copyDeque.removeFirstOccurrence(num);
             long end = System.nanoTime();
             elapsedTime += end - start;
         }

@@ -57,7 +57,7 @@ public class PriorityQueueTests {
         for (int num : testCases) {
             PriorityQueue<Integer> copyQueue = new PriorityQueue<>(queue);
             long start = System.nanoTime();
-            copyQueue.removeIf(value -> value.equals(num));
+            copyQueue.remove(num);
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
