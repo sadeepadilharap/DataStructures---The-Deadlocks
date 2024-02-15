@@ -57,7 +57,7 @@ public class LinkedListTests {
         for (int num : testCases) {
             LinkedList<Integer> copyList = new LinkedList<>(list);
             long start = System.nanoTime();
-            copyList.removeFirstOccurrence(num);
+            copyList.removeIf(value -> value.equals(num));
             long end = System.nanoTime();
             elapsedTime += end - start;
         }

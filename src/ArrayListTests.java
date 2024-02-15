@@ -57,7 +57,7 @@ public class ArrayListTests {
         for (int num : testCases) {
             ArrayList<Integer> copyList = new ArrayList<>(list);
             long start = System.nanoTime();
-            copyList.remove(Integer.valueOf(num));
+            copyList.removeIf(value -> value.equals(num));
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
