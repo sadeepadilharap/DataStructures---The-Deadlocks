@@ -18,7 +18,7 @@ public class LinkedHashMapTests {
 
         // checking time to check if a key is available
         long checkAvailableTime = testContainsKey(testCasesCheckAvailable);
-        System.out.println("LinkedHashMap check available key time: " + checkAvailableTime);
+        System.out.println("LinkedHashMap check available value time: " + checkAvailableTime);
 
         // checking time to remove a given key
         long removeTime = testRemove(testCasesRemove);
@@ -29,7 +29,7 @@ public class LinkedHashMapTests {
         System.out.println("LinkedHashMap clear time: " + clearTime);
     }
 
-    private int testPut(int[] testCases) {
+    private long testPut(int[] testCases) {
         long elapsedTime = 0;
         int key = 0;
         for (int num : testCases) {
@@ -39,10 +39,10 @@ public class LinkedHashMapTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return elapsedTime / testCases.length;
     }
 
-    private int testContainsKey(int[] testCases) {
+    private long testContainsKey(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             long start = System.nanoTime();
@@ -50,10 +50,10 @@ public class LinkedHashMapTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return elapsedTime / testCases.length;
     }
 
-    private int testRemove(int[] testCases) {
+    private long testRemove(int[] testCases) {
         long elapsedTime = 0;
         for (int value : testCases) {
             LinkedHashMap<Integer, Integer> copyMap = new LinkedHashMap<>(map);
@@ -62,10 +62,10 @@ public class LinkedHashMapTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return elapsedTime / testCases.length;
     }
 
-    private int testClear() {
+    private long testClear() {
         long elapsedTime = 0;
         for (int i = 0; i < 100; i++) {
             LinkedHashMap<Integer, Integer> copyMap = new LinkedHashMap<>(map);
@@ -74,6 +74,6 @@ public class LinkedHashMapTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / 100);
+        return elapsedTime / 100;
     }
 }

@@ -29,7 +29,7 @@ public class LinkedListTests {
         System.out.println("LinkedList clear time: " + clearTime);
     }
 
-    private int testAdd(int[] testCases) {
+    private long testAdd(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             LinkedList<Integer> copyList = new LinkedList<>(list);
@@ -38,10 +38,10 @@ public class LinkedListTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return (elapsedTime / testCases.length);
     }
 
-    private int testCheckAvailable(int[] testCases) {
+    private long testCheckAvailable(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             long start = System.nanoTime();
@@ -49,22 +49,22 @@ public class LinkedListTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return (elapsedTime / testCases.length);
     }
 
-    private int testRemove(int[] testCases) {
+    private long testRemove(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             LinkedList<Integer> copyList = new LinkedList<>(list);
             long start = System.nanoTime();
-            copyList.removeIf(value -> value.equals(num));
+            copyList.remove(Integer.valueOf(num));
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return (elapsedTime / testCases.length);
     }
 
-    private int testClear() {
+    private long testClear() {
         long elapsedTime = 0;
         for (int i = 0; i < 100; i++) {
             LinkedList<Integer> copyList = new LinkedList<>(list);
@@ -73,6 +73,6 @@ public class LinkedListTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / 100);
+        return (elapsedTime / 100);
     }
 }

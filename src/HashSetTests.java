@@ -7,7 +7,7 @@ public class HashSetTests {
         this.set = new HashSet<>();
     }
 
-    public void push(int num) {
+    public void add(int num) {
         set.add(num);
     }
 
@@ -29,7 +29,7 @@ public class HashSetTests {
         System.out.println("HashSet clear time: " + clearTimeHS);
     }
 
-    private int testAdd(int[] testCases) {
+    private long testAdd(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             HashSet<Integer> copySet = new HashSet<>(set);
@@ -38,10 +38,10 @@ public class HashSetTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return elapsedTime / testCases.length;
     }
 
-    private int testCheckAvailable(int[] testCases) {
+    private long testCheckAvailable(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             long start = System.nanoTime();
@@ -49,10 +49,10 @@ public class HashSetTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return elapsedTime / testCases.length;
     }
 
-    private int testRemove(int[] testCases) {
+    private long testRemove(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             HashSet<Integer> copySet = new HashSet<>(set);
@@ -61,10 +61,10 @@ public class HashSetTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return elapsedTime / testCases.length;
     }
 
-    private int testClear() {
+    private long testClear() {
         long elapsedTime = 0;
         for (int i = 0; i < 100; i++) {
             HashSet<Integer> copySet = new HashSet<>(set);
@@ -73,6 +73,6 @@ public class HashSetTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / 100);
+        return elapsedTime / 100;
     }
 }

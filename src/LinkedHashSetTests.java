@@ -29,7 +29,7 @@ public class LinkedHashSetTests {
         System.out.println("LinkedHashSet clear time: " + clearTime);
     }
 
-    private int testAdd(int[] testCases) {
+    private long testAdd(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             LinkedHashSet<Integer> copySet = new LinkedHashSet<>(set);
@@ -38,10 +38,10 @@ public class LinkedHashSetTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return elapsedTime / testCases.length;
     }
 
-    private int testCheckAvailable(int[] testCases) {
+    private long testCheckAvailable(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             long start = System.nanoTime();
@@ -49,10 +49,10 @@ public class LinkedHashSetTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return elapsedTime / testCases.length;
     }
 
-    private int testRemove(int[] testCases) {
+    private long testRemove(int[] testCases) {
         long elapsedTime = 0;
         for (int num : testCases) {
             LinkedHashSet<Integer> copySet = new LinkedHashSet<>(set);
@@ -61,10 +61,10 @@ public class LinkedHashSetTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / testCases.length);
+        return elapsedTime / testCases.length;
     }
 
-    private int testClear() {
+    private long testClear() {
         long elapsedTime = 0;
         for (int i = 0; i < 100; i++) {
             LinkedHashSet<Integer> copySet = new LinkedHashSet<>(set);
@@ -73,6 +73,6 @@ public class LinkedHashSetTests {
             long end = System.nanoTime();
             elapsedTime += end - start;
         }
-        return (int) (elapsedTime / 100);
+        return elapsedTime / 100;
     }
 }

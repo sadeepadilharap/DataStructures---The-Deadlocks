@@ -15,9 +15,9 @@ public class App {
 
         for (int i = 0; i < 100000; i++) {
             int num = new Random().nextInt(100000);
-            arrlist1.push(num);
-            arrdeque1.push(num);
-            set1.push(num);
+            arrlist1.add(num);
+            arrdeque1.add(num);
+            set1.add(num);
             list1.add(num);
             tree1.add(num);
             linkedSet1.add(num);
